@@ -6,22 +6,18 @@
 
 ## Themes/Color
 
-* [Just Black](https://marketplace.visualstudio.com/items?itemName=nur.just-black)
+* [Seti-Black]([https://marketplace.visualstudio.com/items?itemName=nur.just-black](https://marketplace.visualstudio.com/items?itemName=bobsparadox.seti-black))
   * See [`editor.tokenColorCustomizations`](#settings) in my VS Code settings for a few modifications I make to the theme.
 
 ## Extensions
 
 * Theme / Editor Experience
-  * [FontSize ShortCuts](https://marketplace.visualstudio.com/items?itemName=fosshaas.fontsize-shortcuts)
-    * Change the font size with keyboard shortcuts.
   * [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
     * Nice / colorful icons for many different file types
   * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
     * Integrates ESLint JS
   * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
     * Automatically format javascript, JSON, CSS, Sass
-  * [Paste JSON as Code](https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype)
-    * Auto generate TypeScript (and other languages) types from JSON data., and HTML files.
   * [PostCSS Intellisense and Highlighting](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-postcss)
     * Works better than the other more popular one of a similar name.
   * [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
@@ -63,76 +59,89 @@
 ### Extension package names for easy install
 
 ```
-nur.just-black
-fosshaas.fontsize-shortcuts
-vscode-icons-team.vscode-icons
-dbaeumer.vscode-eslint
-esbenp.prettier-vscode
-quicktype.quicktype
-vunguyentuan.vscode-postcss
-streetsidesoftware.code-spell-checker
-yoavbls.pretty-ts-errors
-quicktype.quicktype
-adpyke.codesnap
-rangav.vscode-thunder-client
-DotJoshJohnson.xml
+bmewburn.vscode-intelephense-client
+bobsparadox.seti-black
 bradlc.vscode-tailwindcss
+dbaeumer.vscode-eslint
 dsznajder.es7-react-js-snippets
-infarkt.css-to-jss
-paulmolluzzo.convert-css-in-js
-styled-components.vscode-styled-components
-Vue.volar
-svelte.svelte-vscode
-Prisma.prisma
-otovo-oss.htmx-tags
-bierner.markdown-mermaid
+esbenp.prettier-vscode
+kokororin.vscode-phpfmt
+mhutchie.git-graph
+mrmlnc.vscode-scss
+ms-azuretools.vscode-docker
+octref.vetur
+PKief.material-icon-theme
+pranaygp.vscode-css-peek
+rifi2k.format-html-in-php
+streetsidesoftware.code-spell-checker
+vincaslt.highlight-matching-tag
+vscode-icons-team.vscode-icons
 ```
 
 # Settings
 
 ```json
 {
-  "codesnap.backgroundColor": "#000000",
-  "codesnap.containerPadding": "0px",
-  "codesnap.showWindowControls": false,
-  "codesnap.transparentBackground": true,
-  "cSpell.enabled": true,
-  "cSpell.enableFiletypes": [
-    "mdx"
-  ],
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.detectIndentation": true,
-  "editor.fontFamily": "Anonymous Pro",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 13,
-  "editor.formatOnPaste": false,
-  "editor.inlineSuggest.enabled": true,
-  "editor.lineHeight": 0,
+  "workbench.iconTheme": "material-icon-theme",
+  "files.exclude": {
+    "**/.git": false
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "phpfmt.php_bin": "/usr/local/bin/php",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html"
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "terminal.integrated.tabs.enabled": true,
+  "git-graph.maxDepthOfRepoSearch": 3,
+  "workbench.colorTheme": "Seti Black",
   "editor.linkedEditing": true,
-  "editor.minimap.enabled": false,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
-  "editor.suggestSelection": "first",
+  "editor.guides.bracketPairs": true,
+  "editor.fontFamily": "Anonymous Pro",
+  "editor.fontSize": 16,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.5,
+  "editor.fontLigatures": true,
   "editor.tabSize": 2,
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "explorer.openEditors.visible": 0,
+  "vsicons.dontShowNewVersionMessage": true,
+  "extensions.ignoreRecommendations": true,
+  "editor.semanticHighlighting.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "keyword.operator",
-          "punctuation.separator"
-        ],
+        "scope": ["comment", "comment.block"],
         "settings": {
-          "fontStyle": ""
+          "fontStyle": "italic",
+          "foreground": "#ff1493"
         }
       },
       {
         "scope": [
-          "comment",
-          "comment.block"
+          "keyword.operator.logical",
+          "keyword.operator.arithmetic",
+          "keyword.operator.assignment",
+          "keyword.operator.bitwise"
         ],
         "settings": {
-          "fontStyle": "italic",
-          "foreground": "#F5F"
+          "fontStyle": ""
         }
       },
       {
@@ -144,83 +153,95 @@ bierner.markdown-mermaid
       }
     ]
   },
-  "editor.unicodeHighlight.invisibleCharacters": false,
-  "emmet.showAbbreviationSuggestions": false,
-  "eslint.enable": true,
-  "eslint.validate": [
-    "vue",
-    "react",
-    "typescript",
-    "html",
-    "javascript"
-  ],
-  "explorer.openEditors.visible": 1,
-  "extensions.ignoreRecommendations": true,
-  "files.autoSave": "onWindowChange",
-  "git.autofetch": true,
-  "git.openRepositoryInParentFolders": "never",
-  "markdown.preview.fontSize": 36,
-  "screencastMode.keyboardOptions": {
-    "showCommandGroups": false,
-    "showCommands": false,
-    "showKeybindings": true,
-    "showKeys": false,
-    "showSingleEditorCursorMoves": true
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#47d785",
+    "tab.activeBorder": "#47d785",
+    "tab.activeBackground": "#262626",
+    "tab.activeForeground": "#47d785",
+    "tab.inactiveForeground": "#ffffff",
+    "activityBar.foreground": "#47d785",
+    "activityBar.inactiveForeground": "#47d785"
   },
-  "search.exclude": {
-    "**/*.code-search": true,
-    "**/bower_components": true,
-    "**/node_modules": true
-  },
-  "search.useIgnoreFiles": false,
-  "svelte.enable-ts-plugin": true,
-  "terminal.integrated.fontSize": 14,
-  "vsicons.dontShowNewVersionMessage": true,
-  "window.zoomLevel": 4,
-  "workbench.colorTheme": "Just Black",
-  "workbench.editor.labelFormat": "medium",
-  "workbench.editor.showTabs": "none",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false,
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[handlebars]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "update.mode": "manual",
+  "editor.formatOnSave": true,
+  "intelephense.stubs": [
+    "apache",
+    "bcmath",
+    "bz2",
+    "calendar",
+    "com_dotnet",
+    "Core",
+    "ctype",
+    "curl",
+    "date",
+    "dba",
+    "dom",
+    "enchant",
+    "exif",
+    "FFI",
+    "fileinfo",
+    "filter",
+    "fpm",
+    "ftp",
+    "gd",
+    "gettext",
+    "gmp",
+    "hash",
+    "iconv",
+    "imap",
+    "intl",
+    "json",
+    "ldap",
+    "libxml",
+    "mbstring",
+    "meta",
+    "mysqli",
+    "oci8",
+    "odbc",
+    "openssl",
+    "pcntl",
+    "pcre",
+    "PDO",
+    "pdo_ibm",
+    "pdo_mysql",
+    "pdo_pgsql",
+    "pdo_sqlite",
+    "pgsql",
+    "Phar",
+    "posix",
+    "pspell",
+    "random",
+    "readline",
+    "Reflection",
+    "session",
+    "shmop",
+    "SimpleXML",
+    "snmp",
+    "soap",
+    "sockets",
+    "sodium",
+    "SPL",
+    "sqlite3",
+    "standard",
+    "superglobals",
+    "sysvmsg",
+    "sysvsem",
+    "sysvshm",
+    "tidy",
+    "tokenizer",
+    "xml",
+    "xmlreader",
+    "xmlrpc",
+    "xmlwriter",
+    "xsl",
+    "Zend OPcache",
+    "zip",
+    "zlib",
+    "Core",
+    "wordpress"
+  ]
 }
+
 ```
 
 # Keybindings
