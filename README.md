@@ -57,7 +57,8 @@
     * View Mermaid diagrams when previewing Markdown.
 
 ### Extension package names for easy install
-
+Create txt file by nano vs-extensions.txt and paste package names below.
+then run 'cat vs-extensions.txt | xargs -L1 code --install-extension'
 ```
 bmewburn.vscode-intelephense-client
 bobsparadox.seti-black
